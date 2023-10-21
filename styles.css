@@ -1,0 +1,273 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
+
+:root{
+	--redPink : #ff5072;
+	--grayPink: #e0c6cb;
+	--whitePinkBody: #ffe0e6;
+	--lightRedPink: #ffaebd;
+	--white : #ffffff;
+	--gray : #3f4346;
+
+}
+
+body{
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	background: var( --whitePinkBody);
+	margin: 0;
+	padding: 200px 0 0 0;
+}
+header{
+	margin: 0;
+	width: 100%;
+	height: 200px;
+	z-index: 99;
+	position: fixed;
+	top: 0;
+	padding: 1rem 0 0.5rem 0 ;
+	box-shadow: var(--grayPink) 0px 2px 10px;
+	backdrop-filter: blur(10px);
+}
+h2, #date{
+	font-weight: 500;
+	margin-top: 0;
+	text-align: center;
+	color:var(--redPink);
+}
+.deleteAll{
+
+	padding: 2px 6px;
+	border-radius: 15px ;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	    margin-left: 50%;
+    transform: translateX(-50%);
+	color: var(--white);
+background: linear-gradient(to right, #FF7391, #D63051);
+
+	border: none;
+	transition: all  1s ease ;
+}
+.deleteAll svg{
+	width: 25px;
+	height: 25px;
+	transition:  0.9s ease;
+}
+
+.deleteAll:hover {
+
+  background: linear-gradient(to right, #D63051, #FF7391);
+  transform: scale(1.05) translateX(-50%);
+  cursor: pointer;
+}
+
+
+
+.deleteAll:hover svg {
+  transform: scale(1.1);
+}
+.form_container{
+	position: relative;
+	margin:0 auto ;
+	max-width: 50vw;
+	max-height: 100px;
+	padding:  5px 20px;
+}
+
+
+.form_container div{
+	display: flex;
+	gap: 0.5rem;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form_container div input{
+	color: var(--gray);
+	opacity: 0.75;
+	font-size: 1.25rem;
+	padding: 3px 10px;
+	border-radius: 15px ;
+	background: rgb(255, 255, 255, 0.9);
+	border: none;
+	width: 80%;
+	border-bottom: 1px solid var(--gray) ;
+
+}
+.form_container div input:focus{
+	color: var(--gray);
+	opacity: 0.75;
+	font-size: 1.25rem;
+	padding: 3px 10px;
+	border-radius: 15px ;
+	background: rgb(255, 255, 255, 0.9);
+	outline: none;
+
+	
+}
+
+.add-btn{
+
+	position: absolute;
+	right: 0 ;
+	top: 50%;
+	transform: translateY(-50%) ;
+	background: var(--lightRedPink);
+	border: 1px solid white;
+	border-radius: 50% ;
+	padding: 8px;
+	margin: 0;
+	width: 50px;
+	height: 50px;
+
+	transition: 0.3s ease-in-out;
+}
+.add-btn svg path{
+	stroke: white;
+}
+
+.add-btn:hover{
+	cursor: pointer;
+	transform: translateY(-50%) scale(0.85);
+}
+
+/* list items styling */
+.list{
+	margin: 1rem;
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.list-item-container{
+	display: flex;
+}
+ 
+.list-item-container input{
+	min-width: 25px;
+	accent-color: var(--gray);
+}
+
+.list-item{
+	position: relative;
+	width: 100%;
+	margin: 0 1rem;
+	padding: 0.25rem 1rem;
+	border-radius: 15px 0px ;
+	background: var(--lightRedPink);
+	color: var(--gray);
+
+}
+.list-item > *:not(.desc-btn){
+	padding: 0.5rem 1rem;
+}
+.list-item h3{
+	position: relative;
+	border-bottom: 1px solid gray ;
+
+}
+
+
+
+.desc-btn{
+	position: absolute;
+	background: rgb(224, 66, 66);
+	border: 1px solid var(--gray);
+	border: none;
+	border-radius: 8px;
+	top:100%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	
+
+}
+.desc-btn svg {
+	position: absolute;
+	width: 25px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	stroke: white;
+
+	animation: myMove 0.9s infinite;
+	
+}
+
+.checked .list-item{
+	opacity: 0.6;
+}
+.checked .list-item::after{
+	opacity: 1 !important;
+	z-index: 999;
+	content: 'Done !!';
+	font-size: 2rem;
+	position: absolute;
+	background: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% , -50%);
+	opacity: 1;
+
+	
+}
+.list-item h3, .desc-para{
+	 word-break: break-all;
+}
+@media only screen and (max-width: 760px){
+
+	.form_container{
+		max-width: 70vw;
+	}
+	.add-btn{
+		right: -20px;
+	}
+	.desc-btn{
+		transform: scale(0.8) translate(-50%,-50%);
+	}
+}
+@media only screen and (max-width: 300px){
+
+	header h2{
+		font-size: 20px;
+	}
+	header h5{
+		font-size: 12px;
+	}
+.list-item-container input{
+	min-width: 15px;
+}
+
+	
+}
+
+@keyframes myMove {
+  0%   {top: 45%;}
+  
+  50%  {top: 55%; }
+    100% {  top:45%;}
+
+}
+
+.desc-para{
+	display: none;
+}
+
+.desc-activated{
+	display: block !important;
+}
+
+.delete-btn{
+	width: 50px;
+	margin: auto;
+	transition: 0.4s ease;
+}
+.delete-btn:hover{
+	width: 40px;
+	cursor: pointer;
+	opacity: 0.6;
+}
