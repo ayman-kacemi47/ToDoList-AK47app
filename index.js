@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('items', JSON.stringify(items));
 
         fillList();
-        //location.reload(); // so the delete All disepear if no item is there
+        location.reload(); // so the delete All disepear if no item is there
       });
     });
   }
